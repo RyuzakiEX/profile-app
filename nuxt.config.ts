@@ -1,8 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  srcDir: 'src/',
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
-  modules: ['@nuxt/ui-pro'],
-})
+  css: ["~/assets/css/main.css"],
+  modules: ["@nuxt/ui-pro"],
+});
