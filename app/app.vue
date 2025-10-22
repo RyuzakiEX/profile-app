@@ -7,7 +7,7 @@
   <UFooter class="mt-10 fixed bottom-0 w-full">
     <UMarquee
       class="mb-4"
-      pause-on-hover="true"
+      pause-on-hover
       :ui="{ root: '[--gap:--spacing(1)]' }"
     >
       <UIcon name="i-simple-icons-python" class="size-10 shrink-0" />
