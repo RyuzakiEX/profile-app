@@ -168,8 +168,13 @@
       </template>
 
       <template #contact-me="{ item }">
-        <UCard>
-          <UForm :state="contactForm" class="flex flex-col gap-4">
+        <UCard class="flex justify-center">
+          <UForm
+            :state="contactForm"
+            :schema="contactSchema"
+            class="flex justify-center flex-col gap-4"
+            @submit="onSubmit"
+          >
             <UFormField label="Name" name="name" required>
               <UInput v-model="contactForm.name" placeholder="Your name" />
             </UFormField>
@@ -179,6 +184,9 @@
                 type="email"
                 placeholder="your.email@example.com"
               />
+            </UFormField>
+            <UFormField label="Subject" name="subject" required>
+              <UInput v-model="contactForm.subject" placeholder="Subject" />
             </UFormField>
             <UFormField label="Message" name="message" required>
               <UTextarea
@@ -201,6 +209,8 @@
 </template>
 
 <script setup lang="ts">
+import * as z from "zod";
+import type { FormSubmitEvent } from "@nuxt/ui";
 import type { TabsItem } from "@nuxt/ui";
 
 const items = ref<TabsItem[]>([
@@ -299,9 +309,28 @@ const projects = ref([
   },
 ]);
 
-const contactForm = reactive({
+const contactSchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  email: z.email("Please enter a valid email address"),
+  subject: z.string().min(2, "Subject is required"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type ContactSchema = z.output<typeof contactSchema>;
+
+const contactForm = reactive<Partial<ContactSchema>>({
   name: "",
   email: "",
+  subject: "",
   message: "",
 });
+
+const toast = useToast();
+async function onSubmit(event: FormSubmitEvent<ContactSchema>) {
+  toast.add({
+    title: "Success",
+    description: "Message sent!",
+    color: "success",
+  });
+}
 </script>
