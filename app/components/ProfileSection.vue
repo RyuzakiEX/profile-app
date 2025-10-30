@@ -21,7 +21,7 @@
     :links="aboutLinks"
     class="mb-4"
     :ui="{
-      container: 'py-0!',
+      container: 'py-0',
     }"
   />
   <UMarquee
@@ -30,44 +30,10 @@
     :ui="{ root: '[--gap:--spacing(1)]' }"
   >
     <UIcon
-      name="i-simple-icons-python"
-      class="size-8 sm:size-9 md:size-10 shrink-0 bg-purple-600"
-    />
-    <UIcon
-      name="i-simple-icons-nuxtdotjs"
-      class="size-10 shrink-0 bg-purple-600"
-    />
-    <UIcon
-      name="i-simple-icons-vuedotjs"
-      class="size-10 shrink-0 bg-purple-600"
-    />
-    <UIcon
-      name="i-simple-icons-databricks"
-      class="size-10 shrink-0 bg-purple-600"
-    />
-    <UIcon
-      name="i-simple-icons-tensorflow"
-      class="size-10 shrink-0 bg-purple-600"
-    />
-    <UIcon
-      name="i-simple-icons-cplusplus"
-      class="size-10 shrink-0 bg-purple-600"
-    />
-    <UIcon
-      name="i-simple-icons-javascript"
-      class="size-10 shrink-0 bg-purple-600"
-    />
-    <UIcon
-      name="i-simple-icons-typescript"
-      class="size-10 shrink-0 bg-purple-600"
-    />
-    <UIcon
-      name="i-simple-icons-roboflow"
-      class="size-10 shrink-0 bg-purple-600"
-    />
-    <UIcon
-      name="i-simple-icons-ultralytics"
-      class="size-10 shrink-0 bg-purple-600"
+      v-for="icon in marqueeIcons"
+      :key="icon.name"
+      :name="icon.name"
+      :class="icon.class"
     />
   </UMarquee>
 </template>
@@ -85,4 +51,35 @@ const aboutLinks = ref([
     target: "_blank",
   },
 ]);
+
+const marqueeIcons = [
+  {
+    name: "i-simple-icons-python",
+    class: "size-8 sm:size-9 md:size-10 shrink-0 bg-purple-600",
+  },
+  { name: "i-simple-icons-nuxtdotjs", class: "size-10 shrink-0 bg-purple-600" },
+  { name: "i-simple-icons-vuedotjs", class: "size-10 shrink-0 bg-purple-600" },
+  {
+    name: "i-simple-icons-databricks",
+    class: "size-10 shrink-0 bg-purple-600",
+  },
+  {
+    name: "i-simple-icons-tensorflow",
+    class: "size-10 shrink-0 bg-purple-600",
+  },
+  { name: "i-simple-icons-cplusplus", class: "size-10 shrink-0 bg-purple-600" },
+  {
+    name: "i-simple-icons-javascript",
+    class: "size-10 shrink-0 bg-purple-600",
+  },
+  {
+    name: "i-simple-icons-typescript",
+    class: "size-10 shrink-0 bg-purple-600",
+  },
+  { name: "i-simple-icons-roboflow", class: "size-10 shrink-0 bg-purple-600" },
+  {
+    name: "i-simple-icons-ultralytics",
+    class: "size-10 shrink-0 bg-purple-600",
+  },
+];
 </script>
