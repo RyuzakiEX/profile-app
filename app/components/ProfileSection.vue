@@ -25,9 +25,9 @@
     }"
   />
   <UMarquee
-    class="my-6 sm:my-8 md:my-10"
+    class="my-15 sm:my-20 md:my-24"
     pause-on-hover
-    :ui="{ root: '[--gap:--spacing(1)]' }"
+    :ui="{ root: '[--gap:--spacing(5)]' }"
   >
     <UIcon
       v-for="icon in marqueeIcons"
@@ -39,6 +39,8 @@
 </template>
 
 <script setup lang="ts">
+import type { container } from "#build/ui";
+
 const profileDescription = `I'm a versatile Software Developer with experience in full-stack web development and system-level programming. I build responsive front-end interfaces using Vue.js and Nuxt.js, and implement reliable backends with FastAPI and Hapi.js following TDD practices. I also have a background in C/C++ development, SOAP API integration, and printer system debugging. Passionate about clean, scalable code and always eager to learn, I recently developed an object detection pipeline using YOLO and Roboflow.`;
 
 const aboutLinks = ref([
