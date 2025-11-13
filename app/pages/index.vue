@@ -1,6 +1,6 @@
 <template>
   <UContainer class="pt-10">
-    <UTabs :items="items" class="w-full">
+    <UTabs :items="items" class="w-full" :ui="{ label: 'hidden sm:block' }">
       <template #about-me>
         <ProfileSection />
       </template>
