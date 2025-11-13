@@ -81,5 +81,6 @@ const marqueeIcons = [
     name: "i-simple-icons-ultralytics",
     class: "size-10 shrink-0 bg-purple-600",
   },
+  { name: "i-simple-icons-nodedotjs", class: "size-10 shrink-0 bg-purple-600" },
 ];
 </script>

@@ -40,8 +40,31 @@ const projects = ref([
     name: "Developer Profile App",
     description:
       "A Nuxt.js-powered portfolio site to showcase my background, development experience, selected projects, and contact information.",
-    technologies: ["Vue.js", "Nuxt.js", "Node.js", "Typescript"],
-    link: "/", // or just "/" for current site
+    technologies: [
+      "Vue.js",
+      "Nuxt.js",
+      "Node.js",
+      "Typescript",
+      "NuxtHub",
+      "TailwindCSS",
+    ],
+    link: "/",
+  },
+  {
+    name: "Blog App (WIP)",
+    description:
+      "A blog application built with Nuxt.js, featuring content management, SEO optimization, and a responsive design. It allows users to read, comment, and share blog posts easily.",
+    technologies: [
+      "Vue.js",
+      "Nuxt.js",
+      "Node.js",
+      "Typescript",
+      "NuxtHub",
+      "TailwindCSS",
+      "NuxtContent",
+      "NuxtStudio",
+    ],
+    link: "https://blog-app-ryuzaki-ex.nuxt.dev",
   },
 ]);
 </script>
