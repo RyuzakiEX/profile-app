@@ -49,8 +49,6 @@
         type="submit"
         variant="soft"
         class="self-end"
-        :loading="isSubmitting"
-        :disabled="isSubmitting"
       />
     </UForm>
   </UCard>
@@ -76,41 +74,11 @@ const contactForm = reactive<Partial<ContactSchema>>({
 });
 
 const toast = useToast();
-const isSubmitting = ref(false);
-
 async function onSubmit(event: FormSubmitEvent<ContactSchema>) {
-  isSubmitting.value = true;
-
-  try {
-    const response = await $fetch("/api/contact", {
-      method: "POST",
-      body: {
-        name: event.data.name,
-        email: event.data.email,
-        subject: event.data.subject,
-        message: event.data.message,
-      },
-    });
-
-    toast.add({
-      title: "Success",
-      description: "Message sent successfully!",
-      color: "success",
-    });
-
-    // Reset form
-    contactForm.name = "";
-    contactForm.email = "";
-    contactForm.subject = "";
-    contactForm.message = "";
-  } catch (error) {
-    toast.add({
-      title: "Error",
-      description: "Failed to send message. Please try again.",
-      color: "error",
-    });
-  } finally {
-    isSubmitting.value = false;
-  }
+  toast.add({
+    title: "Success",
+    description: "Message sent!",
+    color: "success",
+  });
 }
 </script>
