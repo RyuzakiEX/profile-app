@@ -8,6 +8,16 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxthub/core",
     "@nuxtjs/i18n",
+    "nuxt-nodemailer",
   ],
-  ui: {},
+  nodemailer: {
+    from: process.env.NUXT_NODEMAILER_FROM,
+    host: process.env.NUXT_NODEMAILER_HOST,
+    port: Number(process.env.NUXT_NODEMAILER_PORT),
+    secure: true,
+    auth: {
+      user: process.env.NUXT_NODEMAILER_AUTH_USER,
+      pass: process.env.NUXT_NODEMAILER_AUTH_PASS,
+    },
+  },
 });
