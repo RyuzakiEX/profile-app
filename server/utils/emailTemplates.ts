@@ -1,5 +1,3 @@
-// server/utils/emailTemplates.ts
-
 export function contactFormTemplate(data: {
   name: string;
   email: string;

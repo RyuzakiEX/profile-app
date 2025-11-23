@@ -1,4 +1,3 @@
-// server/api/contact.post.ts
 type ResendResponse = {
   id: string;
 };
