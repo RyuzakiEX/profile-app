@@ -1,3 +1,60 @@
+<script setup lang="ts">
+import * as z from "zod";
+import type { FormSubmitEvent } from "@nuxt/ui";
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Please enter a valid email address"),
+  subject: z.string().min(2, "Subject is required"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type ContactSchema = z.output<typeof contactSchema>;
+
+const contactForm = reactive<Partial<ContactSchema>>({
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+});
+
+const toast = useToast();
+const isSubmitting = ref(false);
+
+async function onSubmit(event: FormSubmitEvent<ContactSchema>) {
+  isSubmitting.value = true;
+
+  try {
+    const response = await $fetch("/api/contact", {
+      method: "POST",
+      body: event.data,
+    });
+
+    toast.add({
+      title: "Success",
+      description: "Message sent successfully!",
+      color: "success",
+    });
+
+    // Clear the form
+    contactForm.name = "";
+    contactForm.email = "";
+    contactForm.subject = "";
+    contactForm.message = "";
+  } catch (error: any) {
+    toast.add({
+      title: "Error",
+      description:
+        error.data?.statusMessage ||
+        "Failed to send message. Please try again.",
+      color: "error",
+    });
+  } finally {
+    isSubmitting.value = false;
+  }
+}
+</script>
+
 <template>
   <UCard
     class="flex justify-center w-full max-w-[95%] sm:max-w-[85%] md:max-w-[600px] mx-auto"
@@ -18,6 +75,7 @@
         <UInput
           v-model="contactForm.name"
           placeholder="Your name"
+          :disabled="isSubmitting"
           class="w-full"
         />
       </UFormField>
@@ -26,6 +84,7 @@
           v-model="contactForm.email"
           type="email"
           placeholder="your.email@example.com"
+          :disabled="isSubmitting"
           class="w-full"
         />
       </UFormField>
@@ -33,6 +92,7 @@
         <UInput
           v-model="contactForm.subject"
           placeholder="Subject"
+          :disabled="isSubmitting"
           class="w-full"
         />
       </UFormField>
@@ -41,44 +101,18 @@
           v-model="contactForm.message"
           placeholder="Your message..."
           :rows="5"
+          :disabled="isSubmitting"
           class="w-full"
         />
       </UFormField>
       <UButton
-        label="Send Message"
+        :label="isSubmitting ? 'Sending...' : 'Send Message'"
         type="submit"
         variant="soft"
+        :loading="isSubmitting"
+        :disabled="isSubmitting"
         class="self-end"
       />
     </UForm>
   </UCard>
 </template>
-
-<script setup lang="ts">
-import * as z from "zod";
-import type { FormSubmitEvent } from "@nuxt/ui";
-
-const contactSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.email("Please enter a valid email address"),
-  subject: z.string().min(2, "Subject is required"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type ContactSchema = z.output<typeof contactSchema>;
-const contactForm = reactive<Partial<ContactSchema>>({
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-});
-
-const toast = useToast();
-async function onSubmit(event: FormSubmitEvent<ContactSchema>) {
-  toast.add({
-    title: "Success",
-    description: "Message sent!",
-    color: "success",
-  });
-}
-</script>
