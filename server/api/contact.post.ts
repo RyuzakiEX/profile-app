@@ -37,7 +37,7 @@ export default defineEventHandler(async (event) => {
         },
         body: {
           from: fromEmail,
-          to: [toEmail],
+          to: toEmail,
           reply_to: body.email,
           subject: `Portfolio Contact: ${body.subject}`,
           html: contactFormTemplate({

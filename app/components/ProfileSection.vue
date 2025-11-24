@@ -31,16 +31,14 @@
   >
     <UIcon
       v-for="icon in marqueeIcons"
-      :key="icon.name"
-      :name="icon.name"
-      :class="icon.class"
+      :key="icon"
+      :name="icon"
+      :class="'size-8 sm:size-9 md:size-10 shrink-0 bg-purple-600'"
     />
   </UMarquee>
 </template>
 
 <script setup lang="ts">
-import type { container } from "#build/ui";
-
 const profileDescription = `I'm a versatile Software Developer with experience in full-stack web development and system-level programming. I build responsive front-end interfaces using Vue.js and Nuxt.js, and implement reliable backends with FastAPI and Hapi.js following TDD practices. I also have a background in C/C++ development, SOAP API integration, and printer system debugging. Passionate about clean, scalable code and always eager to learn, I recently developed an object detection pipeline using YOLO and Roboflow.`;
 
 const aboutLinks = ref([
@@ -55,34 +53,16 @@ const aboutLinks = ref([
 ]);
 
 const marqueeIcons = [
-  {
-    name: "i-simple-icons-python",
-    class: "size-8 sm:size-9 md:size-10 shrink-0 bg-purple-600",
-  },
-  { name: "i-simple-icons-nuxtdotjs", class: "size-10 shrink-0 bg-purple-600" },
-  { name: "i-simple-icons-vuedotjs", class: "size-10 shrink-0 bg-purple-600" },
-  {
-    name: "i-simple-icons-databricks",
-    class: "size-10 shrink-0 bg-purple-600",
-  },
-  {
-    name: "i-simple-icons-tensorflow",
-    class: "size-10 shrink-0 bg-purple-600",
-  },
-  { name: "i-simple-icons-cplusplus", class: "size-10 shrink-0 bg-purple-600" },
-  {
-    name: "i-simple-icons-javascript",
-    class: "size-10 shrink-0 bg-purple-600",
-  },
-  {
-    name: "i-simple-icons-typescript",
-    class: "size-10 shrink-0 bg-purple-600",
-  },
-  { name: "i-simple-icons-roboflow", class: "size-10 shrink-0 bg-purple-600" },
-  {
-    name: "i-simple-icons-ultralytics",
-    class: "size-10 shrink-0 bg-purple-600",
-  },
-  { name: "i-simple-icons-nodedotjs", class: "size-10 shrink-0 bg-purple-600" },
+  "i-simple-icons-python",
+  "i-simple-icons-nuxtdotjs",
+  "i-simple-icons-vuedotjs",
+  "i-simple-icons-databricks",
+  "i-simple-icons-tensorflow",
+  "i-simple-icons-cplusplus",
+  "i-simple-icons-javascript",
+  "i-simple-icons-typescript",
+  "i-simple-icons-roboflow",
+  "i-simple-icons-ultralytics",
+  "i-simple-icons-nodedotjs",
 ];
 </script>
