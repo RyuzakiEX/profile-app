@@ -64,5 +64,6 @@ const marqueeIcons = [
   "i-simple-icons-roboflow",
   "i-simple-icons-ultralytics",
   "i-simple-icons-nodedotjs",
+  "i-simple-icons-resend",
 ];
 </script>
