@@ -4,16 +4,31 @@
     alt="Profile Picture"
     width="200"
     height="200"
-    class="rounded-full mx-auto mb-4 w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px]"
+    class="rounded-full mx-auto my-10 w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px]"
   />
 
   <div class="text-center mb-4">
-    <h2 class="text-lg sm:text-xl md:text-2xl font-semibold px-4">
+    <h2 class="text-xl sm:text-3xl md:text-4xl font-semibold px-4">
       Jorge Gabriel Adrian M. Adanza
     </h2>
-    <p class="text-gray-500 text-sm sm:text-base">
+    <p class="text-gray-500 text-sm sm:text-md md:text-lg">
       Software Developer/ Engineer
     </p>
+  </div>
+
+  <div class="flex gap-4 justify-center items-center">
+    <UButton
+      v-for="link in socialLinks"
+      :key="link.label"
+      :icon="link.icon"
+      variant="ghost"
+      size="xl"
+      square
+      :href="link.href"
+      :target="link.target"
+      :external="link.external"
+      :aria-label="link.label"
+    />
   </div>
 
   <UPageHero
@@ -22,6 +37,7 @@
     class="mb-4"
     :ui="{
       container: 'py-0',
+      description: 'text-justify',
     }"
   />
   <UMarquee
@@ -49,6 +65,24 @@ const aboutLinks = ref([
     to: "/Jorge-Adanza-CV.pdf",
     download: "Jorge-Adanza-CV.pdf",
     target: "_blank",
+    external: true,
+  },
+]);
+
+const socialLinks = ref([
+  {
+    label: "GitHub",
+    icon: "i-simple-icons-github",
+    href: "https://github.com/RyuzakiEX",
+    target: "_blank",
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    icon: "i-simple-icons-linkedin",
+    href: "https://www.linkedin.com/in/jorge-gabriel-adrian-adanza-770656193/",
+    target: "_blank",
+    external: true,
   },
 ]);
 
