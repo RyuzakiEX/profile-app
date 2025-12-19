@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-8 mb-20 py-10">
+  <div class="space-y-8">
     <UCard
       v-for="(exp, index) in experience"
       :key="index"
