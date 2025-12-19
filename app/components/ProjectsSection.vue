@@ -1,5 +1,9 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <UPageSection
+    :ui="{
+      container: 'grid-cols-1! md:grid-cols-2! gap-4! p-0!',
+    }"
+  >
     <NuxtLink
       v-for="(project, index) in projects"
       :key="index"
@@ -13,7 +17,7 @@
       >
         <template #header>
           <div class="flex items-center justify-between">
-            <h3 class="text-lg font-semibold">{{ project.name }}</h3>
+            <h2 class="text-lg sm:text-xl font-bold">{{ project.name }}</h2>
             <UIcon name="i-lucide-external-link" class="size-5 text-gray-400" />
           </div>
         </template>
@@ -31,7 +35,7 @@
         </div>
       </UCard>
     </NuxtLink>
-  </div>
+  </UPageSection>
 </template>
 
 <script setup lang="ts">

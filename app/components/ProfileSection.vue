@@ -8,7 +8,7 @@
   />
 
   <div class="text-center mb-4">
-    <h2 class="text-xl sm:text-3xl md:text-4xl font-semibold px-4">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold px-4">
       Jorge Gabriel Adrian M. Adanza
     </h2>
     <p class="text-gray-500 text-sm sm:text-md md:text-lg">

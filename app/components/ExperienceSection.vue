@@ -11,9 +11,11 @@
         class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4"
       >
         <div class="flex-1">
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+          <h2
+            class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white"
+          >
             {{ exp.company }}
-          </h3>
+          </h2>
           <p class="text-lg font-semibold text-primary mt-1">
             {{ exp.role }}
           </p>
