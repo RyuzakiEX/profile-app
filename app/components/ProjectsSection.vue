@@ -70,7 +70,7 @@ const projects = ref([
       "NuxtHub",
       "TailwindCSS",
     ],
-    link: "https://blog-app-ryuzaki-ex.nuxt.dev",
+    link: "https://blog-app-mu-blond.vercel.app/",
   },
 ]);
 </script>
