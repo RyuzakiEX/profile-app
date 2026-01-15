@@ -48,7 +48,6 @@
           :key="tech"
           color="primary"
           variant="soft"
-          size="sm"
         >
           {{ tech }}
         </UBadge>
@@ -83,6 +82,7 @@ const experience = [
       "YOLO",
       "Git",
       "Trello",
+      "Vercel",
     ],
   },
   {
