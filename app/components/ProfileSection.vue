@@ -40,6 +40,13 @@
       description: 'text-justify',
     }"
   />
+
+  <UPageGrid>
+    <UCard v-for="cert in certificates" :key="cert">
+      <NuxtImg :src="`/${cert}`" alt="Certificate" />
+    </UCard>
+  </UPageGrid>
+
   <UMarquee
     class="my-15 sm:my-20 md:my-24"
     pause-on-hover
@@ -99,5 +106,11 @@ const marqueeIcons = [
   "i-simple-icons-ultralytics",
   "i-simple-icons-nodedotjs",
   "i-simple-icons-resend",
+];
+
+const certificates = [
+  "certificates/coding-game.png",
+  "certificates/fcc-python.png",
+  "certificates/zuitt-web.png",
 ];
 </script>
