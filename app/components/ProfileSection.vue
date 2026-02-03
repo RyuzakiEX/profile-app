@@ -42,10 +42,21 @@
   />
 
   <UPageGrid>
-    <UCard v-for="cert in certificates" :key="cert">
+    <UCard
+      v-for="cert in certificates"
+      :key="cert"
+      class="cursor-pointer hover:ring-2 hover:ring-primary transition-all h-full"
+      @click="openModal(cert)"
+    >
       <NuxtImg :src="`/${cert}`" alt="Certificate" />
     </UCard>
   </UPageGrid>
+
+  <UModal v-model:open="isModalActive">
+    <template #content>
+      <NuxtImg :src="`/${selectedCert}`" alt="Certificate" />
+    </template>
+  </UModal>
 
   <UMarquee
     class="my-15 sm:my-20 md:my-24"
@@ -113,4 +124,16 @@ const certificates = [
   "certificates/fcc-python.png",
   "certificates/zuitt-web.png",
 ];
+
+const isModalActive = ref(false);
+const selectedCert = ref<string | null>("");
+
+function openModal(cert: string) {
+  selectedCert.value = cert;
+  isModalActive.value = true;
+}
+const closeModal = () => {
+  isModalActive.value = false;
+  selectedCert.value = null;
+};
 </script>
